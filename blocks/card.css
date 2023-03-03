@@ -36,4 +36,10 @@
   background: transparent url(../images/Like-unclicked.svg) center no-repeat;
   width: 21px;
   height: 21px;
+  border-style: none;
+}
+@media screen and (max-width: 480px) {
+  .profile {
+    background-color: pink;
+  }
 }
