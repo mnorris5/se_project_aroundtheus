@@ -38,8 +38,22 @@
   height: 21px;
   border-style: none;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 320px) {
   .profile {
     background-color: pink;
   }
 }
+@media screen and (max-width: 768px) {
+  .profile {
+    background-color: skyblue;
+  }
+}@media screen and (min-width: 1208px) {
+  .profile {
+    background-color: olive;
+  }
+/* }@media screen and (max-width: 320px) {
+  .profile {
+    background-color: pink;
+  }
+} */
+
