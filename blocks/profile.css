@@ -17,6 +17,7 @@
   width: 24px;
   grid-area: button;
   border: 1px solid #ffffff;
+  margin-right: 20px;
 }
 .profile__edit_button:hover {
   opacity: 0.6;
