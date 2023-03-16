@@ -11,7 +11,7 @@
   grid-gap: 9px 17px;
   align-items: center;
 }
-.profile__edit_button {
+.profile__edit-button {
   background: transparent url(../images/edit-icon.svg) center no-repeat;
   height: 24px;
   width: 24px;
