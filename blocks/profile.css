@@ -19,7 +19,7 @@
   border: 1px solid #ffffff;
   margin-right: 20px;
 }
-.profile__edit_button:hover {
+.profile__edit-button:hover {
   opacity: 0.6;
 }
 .profile__add-button {
@@ -85,29 +85,16 @@
   .profile__title {
     justify-content: center;
     align-items: center;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: 500;
     font-size: 22px;
     line-height: 27px;
     text-align: center;
-    max-width: 373px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
 
   .profile__description {
     width: 100%;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
   .profile__add-button {
     margin: 0;
