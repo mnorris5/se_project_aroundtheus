@@ -1,0 +1,125 @@
+[33mcommit 04aea572f62dd9104e3c4f610feaf9a7c7c09cff[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Tue Mar 28 11:37:16 2023 -0400
+
+    added scripts and initial cards
+
+[33mcommit 5b4b10cdf672de7cc0c023d750a8fc6dfa4bdb6a[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Tue Mar 21 21:34:07 2023 -0400
+
+    fixed footer copyright and profile
+
+[33mcommit 58438b396d2329f2be7fc07dc69d4a40305c4ae9[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Mon Mar 20 15:11:08 2023 -0400
+
+    fixed profile card and header
+
+[33mcommit 6b0fa5ee027cfb05230d2165c707f71c4e83887b[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Fri Mar 17 14:56:16 2023 -0400
+
+    added README info
+
+[33mcommit ea1a1f648d7df7d7e828aab1a9442abf8cee0bb4[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Fri Mar 17 12:20:19 2023 -0400
+
+    fixed card footer profile index css
+
+[33mcommit 78c4caf2e4855afd7d3b721cde5d5ac745088189[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 15:17:14 2023 -0400
+
+    added weight and style to font.css
+
+[33mcommit b147ee155e16918494cb5c7ee57fb625a8a8f359[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 13:44:48 2023 -0400
+
+    changed font css
+
+[33mcommit 8aaf2666a33cee4371797416156c13f0c1671520[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 13:38:54 2023 -0400
+
+    added inter black font
+
+[33mcommit ec85c647bf7139753c70a5d28a05896e6227b71c[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 10:48:34 2023 -0400
+
+    changed edit button class
+
+[33mcommit 9fec1c0e5923ffa7b5a3d24f60f1e9502633b6a6[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 10:46:32 2023 -0400
+
+    added margin to edit button
+
+[33mcommit e4aafa949718ab7bd22e5a55c33c90f957481676[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 10:37:57 2023 -0400
+
+    added favicon
+
+[33mcommit f34c199bc490596cd5e1fe87c22aab6644ecbcbb[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 16 10:33:55 2023 -0400
+
+    fixed html errors
+
+[33mcommit 4abba9b154c6842ce3fba19c8a1b402998584d7c[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Wed Mar 15 21:59:44 2023 -0400
+
+    fixed html
+
+[33mcommit b221f62920eb2db51ac3174f5cc92ae2d653314b[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Wed Mar 15 21:03:29 2023 -0400
+
+    added media query
+
+[33mcommit 916d53760722dd8dbeeb4be8a86887e8f0a94386[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Mon Mar 13 21:07:27 2023 -0400
+
+    fixed fonts and edit button
+
+[33mcommit dc5963813609153891df2372779e8742f1a15073[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Fri Mar 10 18:39:04 2023 -0500
+
+    added fonts
+
+[33mcommit 466863766e4e3bc9e1136be39f391af649fc53c5[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Fri Mar 3 22:04:38 2023 -0500
+
+    fixed profile and cards
+
+[33mcommit ca299a361067b69656b224441d48432eae66e14e[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Thu Mar 2 21:56:27 2023 -0500
+
+    added footer
+
+[33mcommit d6ecda808a32cfe75fac96cf8c1ae620970fd0a8[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Wed Mar 1 21:04:06 2023 -0500
+
+    fixed images in html
+
+[33mcommit a1298511e44494c4929991e7224cd54985d4fa4b[m
+Author: Mike Norris <minorris513@gmail.com>
+Date:   Wed Mar 1 20:55:20 2023 -0500
+
+    added css html images pages vendor
+
+[33mcommit 881d01519efad88aedc4da0934263fe2d022e4a5[m
+Author: mnorris5 <121980065+mnorris5@users.noreply.github.com>
+Date:   Tue Feb 28 11:44:15 2023 -0500
+
+    Initial commit
