@@ -4,10 +4,13 @@
   right: 0;
   left: 0;
   bottom: 0;
-  display: flex;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0 19px;
+  display: none;
+}
+.modal_opened {
+  display: flex;
 }
 
 .modal__container {
@@ -30,6 +33,9 @@
   background-size: contain;
   position: absolute;
   cursor: pointer;
+}
+.modal__close:hover {
+  opacity: 0.6;
 }
 .modal__heading {
   color: #000;
@@ -83,6 +89,7 @@
   color: #ffffff;
   padding: 0;
 }
+
 @media screen and (max-width: 480px) {
   .modal__container {
     padding: 25px 22px 25px 22px;
