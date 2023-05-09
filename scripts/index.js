@@ -27,13 +27,13 @@ const initialCards = [
 
 const cardTemplate = document
   .querySelector("#card-template")
-  .textContent.querySelector("card");
+  .content.querySelector(".card");
 
 // wrappers
 const cardsWrap = document.querySelector(".cards_list");
 const editProfileModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
-const profileFormElement = document.querySelector("modal__form");
+const profileFormElement = document.querySelector(".modal__form");
 
 // buttons and dom nodes
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -57,7 +57,7 @@ function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
 
-function handleProfileEditSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
