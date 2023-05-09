@@ -44,24 +44,24 @@
       </footer>
     </div>
     <!-- edit modal -->
-    <div class="modal" id="edit-modal">
+    <div class="modal modal_opened" id="edit-modal">
       <div class="modal__container">
         <button
           class="modal__close"
           type="button"
           id="profile-modal-close"
         ></button>
-        <p class="modal__title">Edit Profile</p>
+        <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" id="edit-profile-form">
           <input
-            class="modal__input modal__input_type_name"
+            class="modal__form-title modal__input_type_name"
             type="text"
             name="title"
             id="profile-title-input"
             placeholder="Title"
           />
           <input
-            class="modal__input modal__input_type_description"
+            class="modal__form-description modal__input_type_description"
             type="text"
             name="description"
             id="profile-description-input"
@@ -72,7 +72,7 @@
       </div>
     </div>
     <!-- Add Card Modal  -->
-    <div class="modal" id="add-card-modal">
+    <div class="modal modal_opened" id="add-card-modal">
       <div class="modal__container">
         <button
           class="modal__close"
