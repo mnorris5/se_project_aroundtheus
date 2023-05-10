@@ -94,6 +94,25 @@
   opacity: 0.6;
 }
 
+.modal__preview-container {
+  position: relative;
+  margin: 90px auto 0;
+  padding: 0;
+}
+.modal__preview-image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+.modal__preview-title {
+  margin: 10px 0;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+
 @media screen and (max-width: 480px) {
   .modal__container {
     padding: 25px 22px 25px 22px;

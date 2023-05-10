@@ -36,6 +36,10 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 
+const previewImageModal = document.querySelector("#image-modal");
+const previewImage = previewImageModal.querySelector(".modal__preview-image");
+const previewTitle = previewImageModal.querySelector(".modal__preview-title");
+
 // buttons and dom nodes
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
@@ -43,6 +47,8 @@ const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
+const previewModalCloseButton =
+  previewImageModal.querySelector(".modal__close");
 
 // form data
 const nameInput = profileFormElement.querySelector(".modal__input_type_name");
@@ -101,6 +107,16 @@ function getCardElement(data) {
   // open modal with previewImageModal (in html and css)
 
   // use visibility hidden for smooth transition not display none
+  cardImage.addEventListener("click", () => {
+    previewImage.src = data.link;
+    previewImage.alt = data.name;
+    previewTitle.textContent = data.name;
+    openModal(previewImageModal);
+  });
+
+  previewModalCloseButton.addEventListener("click", () =>
+    closeModal(previewImageModal)
+  );
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
