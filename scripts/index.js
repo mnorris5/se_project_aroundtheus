@@ -85,6 +85,22 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  // find delete button
+
+  // add eventListener to the delete button
+
+  // call carElement.remove
+
+  // for last modal add click listener to cardImage ellement
+  // open modal with previewImageModal (in html and css)
+
+  // use visibility hidden for smooth transition not display none
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
 
   cardImage.src = data.link;
   cardImage.alt = data.name;
