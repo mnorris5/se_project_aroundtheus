@@ -86,12 +86,16 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   // find delete button
 
   // add eventListener to the delete button
 
-  // call carElement.remove
+  // call cardElement.remove();
 
   // for last modal add click listener to cardImage ellement
   // open modal with previewImageModal (in html and css)
