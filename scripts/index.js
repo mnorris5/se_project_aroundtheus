@@ -33,7 +33,8 @@ const cardTemplate = document
 const cardsWrap = document.querySelector(".cards__list");
 const editProfileModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
-const profileFormElement = document.querySelector(".modal__form");
+const profileFormElement = editProfileModal.querySelector(".modal__form");
+const addCardFormElement = addCardModal.querySelector(".modal__form");
 
 // buttons and dom nodes
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -48,6 +49,10 @@ const nameInput = profileFormElement.querySelector(".modal__input_type_name");
 const jobInput = profileFormElement.querySelector(
   ".modal__input_type_description"
 );
+const cardTitleInput = addCardFormElement.querySelector(
+  ".modal__input_type_title"
+);
+const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -57,11 +62,23 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
   closeModal(editProfileModal);
+}
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  renderCard({ name, link }, cardsWrap);
+  closeModal(addCardModal);
 }
 
 function getCardElement(data) {
@@ -75,8 +92,11 @@ function getCardElement(data) {
 
   return cardElement;
 }
+// form listeners
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
@@ -91,6 +111,4 @@ addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
-initialCards.forEach((cardData) => {
-  cardsWrap.prepend(getCardElement(cardData));
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
