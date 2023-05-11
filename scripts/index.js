@@ -97,16 +97,6 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
-  // find delete button
-
-  // add eventListener to the delete button
-
-  // call cardElement.remove();
-
-  // for last modal add click listener to cardImage ellement
-  // open modal with previewImageModal (in html and css)
-
-  // use visibility hidden for smooth transition not display none
   cardImage.addEventListener("click", () => {
     previewImage.src = data.link;
     previewImage.alt = data.name;
