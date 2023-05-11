@@ -105,10 +105,6 @@ function getCardElement(data) {
     openModal(previewImageModal);
   });
 
-  previewModalCloseButton.addEventListener("click", () =>
-    closeModal(previewImageModal)
-  );
-
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
@@ -120,6 +116,10 @@ function getCardElement(data) {
   return cardElement;
 }
 // form listeners
+
+previewModalCloseButton.addEventListener("click", () =>
+  closeModal(previewImageModal)
+);
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
