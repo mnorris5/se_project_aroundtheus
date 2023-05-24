@@ -102,7 +102,10 @@
               name="title"
               placeholder="Title"
               required
+              minlength="1"
+              maxlength="30"
             />
+            <span class="modal__error" id="owner-description-error"></span>
           </label>
           <label class="modal__label">
             <input
@@ -112,6 +115,7 @@
               placeholder="Image URL"
               required
             />
+            <span class="modal__error" id="owner-description-error"></span>
           </label>
           <button
             class="button modal__button modal__button_disabled"
