@@ -53,23 +53,35 @@
         ></button>
         <h3 class="modal__heading">Edit Profile</h3>
         <form class="modal__form" id="edit-profile-form">
-          <input
-            class="modal__input modal__input_type_name"
-            type="text"
-            name="title"
-            id="profile-title-input"
-            placeholder="Title"
-            required
-          />
-          <input
-            class="modal__input modal__input_type_description"
-            type="text"
-            name="description"
-            id="profile-description-input"
-            placeholder="Description"
-            required
-          />
-          <button class="button modal__button" type="submit">Save</button>
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_name modal__input_type_error"
+              type="text"
+              name="title"
+              id="owner-name"
+              placeholder="Title"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="modal__error" id="owner-name-error"></span>
+          </label>
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_description"
+              type="text"
+              name="description"
+              id="owner-description"
+              placeholder="Description"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="modal__error" id="owner-description-error"></span>
+          </label>
+          <button class="button modal__button" type="submit" disabled>
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -122,5 +134,6 @@
       </li>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>
