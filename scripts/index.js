@@ -65,22 +65,30 @@ function closeModal(modal) {
   document.removeEventListener("keyup", (evt) => {
     closeByEscape(evt, modal);
   });
-  document.removeEventListener("mouseup", () => closeByClick(evt, modal));
+
+  document.removeEventListener("mousedown", (evt) => {
+    closeByClick(evt, modal);
+  });
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+
   document.addEventListener("keyup", (evt) => {
     closeByEscape(evt, modal);
   });
-  document.addEventListener("mouseup", () => closeByClick(evt, modal));
-  modal.classList.add("modal_opened");
+
+  document.addEventListener("mousedown", (evt) => {
+    closeByClick(evt, modal);
+  });
 }
+
 function closeByEscape(evt, modal) {
   if (evt.key === "Escape") {
     closeModal(modal);
   }
 }
+
 function closeByClick(evt, modal) {
   if (
     evt.target.classList.contains(".modal__close") ||
