@@ -62,13 +62,13 @@ const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", (evt) => {
-    closeByEscape(evt, modal);
-  });
+  // document.removeEventListener("keyup", (evt) => {
+  //   closeByEscape(evt, modal);
+  // });
 
-  document.removeEventListener("mousedown", (evt) => {
-    closeByClick(evt, modal);
-  });
+  // document.removeEventListener("mouseup", (evt) => {
+  //   closeByClick(evt, modal);
+  // });
 }
 
 function openModal(modal) {
@@ -78,7 +78,7 @@ function openModal(modal) {
     closeByEscape(evt, modal);
   });
 
-  document.addEventListener("mousedown", (evt) => {
+  document.addEventListener("mouseup", (evt) => {
     closeByClick(evt, modal);
   });
 }
@@ -91,8 +91,8 @@ function closeByEscape(evt, modal) {
 
 function closeByClick(evt, modal) {
   if (
-    evt.target.classList.contains(".modal__close") ||
-    evt.target.classList.contains(".modal")
+    evt.target.classList.contains("modal__close") ||
+    evt.target.classList.contains("modal")
   ) {
     closeModal(modal);
   }
