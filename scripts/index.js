@@ -62,39 +62,30 @@ const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  // document.removeEventListener("keyup", (evt) => {
-  //   closeByEscape(evt, modal);
-  // });
-
-  // document.removeEventListener("mouseup", (evt) => {
-  //   closeByClick(evt, modal);
-  // });
+  document.removeEventListener("keyup", closeByEscape);
+  document.removeEventListener("mousedown", closeByClick);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-
-  document.addEventListener("keyup", (evt) => {
-    closeByEscape(evt, modal);
-  });
-
-  document.addEventListener("mouseup", (evt) => {
-    closeByClick(evt, modal);
-  });
+  document.addEventListener("keyup", closeByEscape);
+  modal.addEventListener("mousedown", closeByClick);
 }
 
-function closeByEscape(evt, modal) {
+function closeByEscape(evt) {
   if (evt.key === "Escape") {
-    closeModal(modal);
+    const openedModal = document.querySelector(".modal_opened");
+
+    closeModal(openedModal);
   }
 }
 
 function closeByClick(evt, modal) {
   if (
-    evt.target.classList.contains("modal__close") ||
-    evt.target.classList.contains("modal")
+    evt.target === evt.currentTarget ||
+    evt.target.classList.contains("modal__close")
   ) {
-    closeModal(modal);
+    closeModal(evt.target);
   }
 }
 
@@ -164,8 +155,11 @@ profileModalCloseButton.addEventListener("click", () =>
 );
 // add new card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardModalCloseButton.addEventListener("click", () =>
-  closeModal(addCardModal)
-);
+
+// addCardModalCloseButton.addEventListener("click", () =>
+//   closeModal(addCardModal)
+// );
+
+addCardModalCloseButton.addEventListener("click", addCardModalCloseButton);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
