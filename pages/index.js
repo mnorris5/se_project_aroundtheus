@@ -1,3 +1,7 @@
+import Card from "../components/card.js";
+import FormValidator from "../components/FormValidator.js";
+import { openModal, closeModal } from "../utils/utils.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -36,9 +40,13 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 
-const previewImageModal = document.querySelector("#image-modal");
-const previewImage = previewImageModal.querySelector(".modal__preview-image");
-const previewTitle = previewImageModal.querySelector(".modal__preview-title");
+export const previewImageModal = document.querySelector("#image-modal");
+export const previewImage = previewImageModal.querySelector(
+  ".modal__preview-image"
+);
+export const previewTitle = previewImageModal.querySelector(
+  ".modal__preview-title"
+);
 
 // buttons and dom nodes
 const profileEditButton = document.querySelector(".profile__edit-button");

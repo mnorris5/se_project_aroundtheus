@@ -1,26 +1,9 @@
-const imageModalWindow = document.querySelector(".modal__preview-container");
-const imageElement = imageModalWindow.querySelector(".modal__preview-image");
-const imageCaption = imageModalWindow.querySelector(".modal__preview-title");
-const ESC_KEYCODE = 27;
-
-const handleEsc = (evt) => {
-  evt.preventDefault();
-
-  const activeModal = document.querySelector(".modal_opened");
-  if (evt.which === ESC_KEYCODE) {
-    closeModalWindow(activeModal);
-  }
-};
-
-const openModalWindow = (modalWindow) => {
-  modalWindow.classList.add("modal__opened");
-  document.addEventListener("keyup", handleEsc);
-};
-
-const closeModalWindow = (modalWindow) => {
-  modalWindow.classList.remove("modal__opened");
-  document.removeEventListener("keyup", handleEsc);
-};
+import { openModal } from "../utils/utils.js";
+import {
+  previewImage,
+  previewImageModal,
+  previewTitle,
+} from "../pages/index.js";
 
 class Card {
   constructor(data, cardSelector) {
@@ -39,14 +22,25 @@ class Card {
   }
 
   _setEventListeners() {
-    //  haandlers are private
+    this._likeButton.addEventListener("click", this._handleLikeIcon);
+    this._deleteButton.addEventListener("click", this._handleDeleteCard);
+    this._cardImage.addEventListener("click", this._handlePreviewImage);
   }
 
-  _handleLikeIcon() {}
+  _handleLikeIcon() {
+    this._likeButton.classList.toggle("card__like-button_active");
+  }
 
-  _handleDeleteCard() {}
+  _handleDeleteCard() {
+    this._cardElement.remove();
+  }
 
-  _handlePreviewImage() {}
+  _handlePreviewImage() {
+    previewImage.src = this._link;
+    previewImage.alt = this._name;
+    previewTitle.textContent = this._name;
+    openModal(previewImageModal);
+  }
 
   generateCard() {
     this._element = this._getTemplate();

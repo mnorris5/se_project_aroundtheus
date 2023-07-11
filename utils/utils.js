@@ -3,19 +3,19 @@ export function closeModal(modal) {
   document.removeEventListener("keyup", closeByEscape);
   document.removeEventListener("mousedown", closeByClick);
 }
-function openModal(modal) {
+export function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keyup", closeByEscape);
   modal.addEventListener("mousedown", closeByClick);
 }
-function closeByEscape(evt) {
+export function closeByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
 
     closeModal(openedModal);
   }
 }
-function closeByClick(evt, modal) {
+export function closeByClick(evt, modal) {
   if (
     evt.target === evt.currentTarget ||
     evt.target.classList.contains("modal__close")
