@@ -2,6 +2,18 @@ import Card from "../components/card.js";
 import FormValidator from "../components/FormValidator.js";
 import { openModal, closeModal } from "../utils/utils.js";
 
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+const addCardForm = document.querySelector("#add-card-form");
+const addCardFormValidator = new FormValidator(config, addCardForm);
+addCardFormValidator.enableValidation();
+
 const initialCards = [
   {
     name: "Yosemite Valley",
