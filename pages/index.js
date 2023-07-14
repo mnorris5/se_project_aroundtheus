@@ -10,9 +10,12 @@ const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+const editProfileForm = document.querySelector("#edit-profile-form");
 const addCardForm = document.querySelector("#add-card-form");
 const addCardFormValidator = new FormValidator(config, addCardForm);
+const editProfileFormValidator = new FormValidator(config, editProfileForm);
 addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
 
 const initialCards = [
   {
