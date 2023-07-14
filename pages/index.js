@@ -44,10 +44,20 @@ const initialCards = [
   },
 ];
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
+const cardSelector = "#card-template";
+const renderCard = (cardData, wrapper) => {
+  const card = new Card(data, cardSelector);
+  wrapper.prepend(cardElement);
+};
 
+// const cardTemplate = document
+//   .querySelector("#card-template")
+//   .content.querySelector(".card");
+
+// function renderCard(cardData, wrapper) {
+//   const cardElement = getCardElement(cardData);
+//   wrapper.prepend(cardElement);
+// }
 // wrappers
 const cardsWrap = document.querySelector(".cards__list");
 const editProfileModal = document.querySelector("#edit-modal");
@@ -113,11 +123,6 @@ const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 //     closeModal(evt.target);
 //   }
 // }
-
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
-}
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
