@@ -30,16 +30,16 @@ class Card {
     this.classList.toggle("card__like-button_active");
   }
 
-  _handleDeleteCard() {
+  _handleDeleteCard = () => {
     this._element.remove();
-  }
+  };
 
-  _handlePreviewImage() {
+  _handlePreviewImage = () => {
     previewImage.src = this._link;
     previewImage.alt = this._name;
     previewTitle.textContent = this._name;
     openModal(previewImageModal);
-  }
+  };
 
   generateCard() {
     this._element = this._getTemplate();
