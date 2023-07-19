@@ -46,8 +46,9 @@ const initialCards = [
 
 const cardSelector = "#card-template";
 const renderCard = (cardData, wrapper) => {
-  const card = new Card(data, cardSelector);
-  wrapper.prepend(cardElement);
+  const card = new Card(cardData, cardSelector);
+  wrapper.prepend(card.generateCard());
+  //   card._setEventListeners();
 };
 
 // const cardTemplate = document
@@ -58,6 +59,7 @@ const renderCard = (cardData, wrapper) => {
 //   const cardElement = getCardElement(cardData);
 //   wrapper.prepend(cardElement);
 // }
+
 // wrappers
 const cardsWrap = document.querySelector(".cards__list");
 const editProfileModal = document.querySelector("#edit-modal");

@@ -9,7 +9,6 @@ class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
-
     this._cardSelector = cardSelector;
   }
 
@@ -28,11 +27,11 @@ class Card {
   }
 
   _handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button_active");
+    this.classList.toggle("card__like-button_active");
   }
 
   _handleDeleteCard() {
-    this._cardElement.remove();
+    this._element.remove();
   }
 
   _handlePreviewImage() {
@@ -44,13 +43,16 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+
+    this._likeButton = this._element.querySelector(".card__like-button");
+    this._deleteButton = this._element.querySelector(".card__delete-button");
+    this._cardImage = this._element.querySelector(".card__image");
+
+    this._element.querySelector(".card__image").src = this._link;
+    this._element.querySelector(".card__title").textContent = this._name;
+
     this._setEventListeners();
-
-    this._element.querySelector(
-      ".card__image"
-    ).style.backgroundImage = `url(4{this._link})`;
-    this._element.querySelector(".card__title").textContent = this._text;
-
+    console.log(this._element);
     return this._element;
   }
 }
