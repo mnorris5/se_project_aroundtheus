@@ -1,7 +1,6 @@
 export function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keyup", closeByEscape);
-  document.removeEventListener("mousedown", closeByClick);
 }
 export function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -15,11 +14,11 @@ function closeByEscape(evt) {
     closeModal(openedModal);
   }
 }
-function closeByClick(evt, modal) {
+function closeByClick(evt) {
   if (
     evt.target === evt.currentTarget ||
     evt.target.classList.contains("modal__close")
   ) {
-    closeModal(evt.target);
+    closeModal(evt.currentTarget);
   }
 }

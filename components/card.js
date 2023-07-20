@@ -32,6 +32,7 @@ class Card {
 
   _handleDeleteCard = () => {
     this._element.remove();
+    this._element = null;
   };
 
   _handlePreviewImage = () => {
@@ -48,7 +49,8 @@ class Card {
     this._deleteButton = this._element.querySelector(".card__delete-button");
     this._cardImage = this._element.querySelector(".card__image");
 
-    this._element.querySelector(".card__image").src = this._link;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
 
     this._setEventListeners();
