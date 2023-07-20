@@ -58,6 +58,14 @@ class FormValidator {
     }
   }
 
+  resetValidation() {
+    //  loop through this._inputEls and call this._hideInputError for each one
+    this._toggleButtonState();
+    this._inputEls.forEach((inputEl) => {
+      this._hideInputError(inputEl);
+    });
+  }
+
   _setEventListeners() {
     this._inputEls = [...this._element.querySelectorAll(this._inputSelector)];
 

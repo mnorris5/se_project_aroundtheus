@@ -140,40 +140,43 @@ function handleAddCardFormSubmit(evt) {
   closeModal(addCardModal);
 
   addCardFormElement.reset();
-  toggleButtonState(
-    [cardTitleInput, cardUrlInput],
-    cardAddSubmitButton,
-    config
-  );
+  addCardFormValidator.resetValidation();
+  addCardFormValidator._disableBtn();
+
+  // addCardFormValidator._toggleButtonState();
+
+  // toggleButtonState();
+  // [(cardTitleInput, cardUrlInput)], cardAddSubmitButton, config;
 }
 
-function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+// function getCardElement(data) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImage = cardElement.querySelector(".card__image");
+//   const cardTitle = cardElement.querySelector(".card__title");
+//   const likeButton = cardElement.querySelector(".card__like-button");
+//   const deleteButton = cardElement.querySelector(".card__delete-button");
+//   deleteButton.addEventListener("click", () => {
+//     cardElement.remove();
+//   });
 
-  cardImage.addEventListener("click", () => {
-    previewImage.src = data.link;
-    previewImage.alt = data.name;
-    previewTitle.textContent = data.name;
-    openModal(previewImageModal);
-  });
+//   cardImage.addEventListener("click", () => {
+//     previewImage.src = data.link;
+//     previewImage.alt = data.name;
+//     previewTitle.textContent = data.name;
+//     openModal(previewImageModal);
+//   });
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
 
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
-  cardTitle.textContent = data.name;
+//   cardImage.src = data.link;
+//   cardImage.alt = data.name;
+//   cardTitle.textContent = data.name;
 
-  return cardElement;
-}
+//   return cardElement;
+// }
+
 // form listeners
 
 previewModalCloseButton.addEventListener("click", () =>

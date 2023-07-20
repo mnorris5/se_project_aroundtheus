@@ -52,7 +52,7 @@ class Card {
     this._element.querySelector(".card__title").textContent = this._name;
 
     this._setEventListeners();
-    console.log(this._element);
+
     return this._element;
   }
 }
