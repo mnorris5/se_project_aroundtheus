@@ -1,6 +1,6 @@
 export function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", closeByEscape);
+  // document.removeEventListener("keyup", closeByEscape);
 }
 export function openModal(modal) {
   modal.classList.add("modal_opened");
