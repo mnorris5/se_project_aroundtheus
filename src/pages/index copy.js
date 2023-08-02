@@ -1,6 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { openModal, closeModal } from "../utils/utils.js";
+import "./index.css";
 
 const config = {
   formSelector: ".modal__form",

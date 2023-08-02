@@ -5,11 +5,12 @@ import {
   previewTitle,
 } from "../pages/index.js";
 
-class Card {
-  constructor(data, cardSelector) {
+export default class Card {
+  constructor({ data, handleImageClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -23,7 +24,9 @@ class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLikeIcon);
     this._deleteButton.addEventListener("click", this._handleDeleteCard);
-    this._cardImage.addEventListener("click", this._handlePreviewImage);
+    this._cardImage.addEventListener("click", () =>
+      this._handleImageClick({ link: this._link, text: this._name })
+    );
   }
 
   _handleLikeIcon() {
@@ -36,10 +39,10 @@ class Card {
   };
 
   _handlePreviewImage = () => {
-    previewImage.src = this._link;
-    previewImage.alt = this._name;
-    previewTitle.textContent = this._name;
-    openModal(previewImageModal);
+    // previewImage.src = this._link;
+    // previewImage.alt = this._name;
+    // previewTitle.textContent = this._name;
+    // openModal(previewImageModal);
   };
 
   generateCard() {
@@ -58,4 +61,4 @@ class Card {
     return this._element;
   }
 }
-export default Card;
+// export default Card;
