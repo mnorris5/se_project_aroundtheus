@@ -34,7 +34,7 @@ const CardSection = new Section(
 const newCardPopup = new PopupWithForm("#add-card-modal", () => {});
 newCardPopup.setEventListeners();
 newCardPopup.open();
-newCardPopup.close();
+// newCardPopup.close();
 // initialize instances
 CardSection.renderItems(initialCards);
 CardPreviewPopup.setEventListener();
@@ -42,4 +42,7 @@ CardPreviewPopup.setEventListener();
 // all the rest
 
 const addNewCardButton = document.querySelector(".profile__add-button");
-addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+const editProfileButton = document.querySelector(".profile__edit-button");
+addNewCardButton.addEventListener("click", () => newCardPoppup.open());
+editProfileButton.addEventListener("click", () => editProfilePopup.open());
+//repeat 45 for other 2 popups
