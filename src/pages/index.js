@@ -6,6 +6,7 @@ import FormValidator from "../components/FormValidator.js";
 import { openModal, closeModal } from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage";
+import PopupWithForm from "../components/PopupWithForm";
 
 // create instances of classes
 const CardPreviewPopup = new PopupWithImage({
@@ -30,12 +31,15 @@ const CardSection = new Section(
   selectors.cardSection
 );
 
-// const newCardPopup = new PopupWithForm("#add-card-modal", () => {});
-//     newCardPopup.open();
-
-//     newCardPopup.close();
+const newCardPopup = new PopupWithForm("#add-card-modal", () => {});
+newCardPopup.setEventListeners();
+newCardPopup.open();
+newCardPopup.close();
 // initialize instances
 CardSection.renderItems(initialCards);
 CardPreviewPopup.setEventListener();
 
 // all the rest
+
+const addNewCardButton = document.querySelector(".profile__add-button");
+addNewCardButton.addEventListener("click", () => openModal(addCardModal));

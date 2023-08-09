@@ -8,14 +8,14 @@ export function openModal(modal) {
   document.addEventListener("keyup", closeByEscape);
   modal.addEventListener("mousedown", closeByClick);
 }
-function closeByEscape(evt) {
+export function closeByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
 
     closeModal(openedModal);
   }
 }
-function closeByClick(evt) {
+export function closeByClick(evt) {
   if (
     evt.target === evt.currentTarget ||
     evt.target.classList.contains("modal__close")
