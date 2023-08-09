@@ -1,5 +1,3 @@
-import config from "../utils/constants.js";
-
 export default class FormValidator {
   constructor(config, formElement) {
     this._inputSelector = config.inputSelector;
@@ -11,22 +9,18 @@ export default class FormValidator {
     this._element = formElement;
   }
 
-  _showInputError(inputElement) {
-    const errorElement = this._element.querySelector(
-      `#${inputElement.id}-error`
-    );
+  _showInputError(inputEl) {
+    const errorElement = this._element.querySelector(`#${inputEl.id}-error`);
 
-    inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = inputElement.validationMessage;
+    inputEl.classList.add(this._inputErrorClass);
+    errorElement.textContent = inputEl.validationMessage;
     errorElement.classList.add(this._errorClass);
   }
 
-  _hideInputError(inputElement) {
-    const errorElement = this._element.querySelector(
-      `#${inputElement.id}-error`
-    );
+  _hideInputError(inputEl) {
+    const errorElement = this._element.querySelector(`#${inputEl.id}-error`);
 
-    inputElement.classList.remove(this._inputErrorClass);
+    inputEl.classList.remove(this._inputErrorClass);
     errorElement.textContent = "";
     errorElement.classList.remove(this._errorClass);
   }

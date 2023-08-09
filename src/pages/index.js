@@ -1,13 +1,15 @@
 import "./index.css";
 // class imports
-import { initialCards, selectors } from "../utils/constants.js";
+import { initialCards, selectors, config } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { openModal, closeModal } from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
-import config from "../utils/constants.js";
+
+const addCardForm = document.querySelector("#add-card-form");
+const editProfileForm = document.querySelector("#profile-edit-form");
 
 // create instances of classes
 

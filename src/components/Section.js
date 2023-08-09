@@ -28,7 +28,6 @@ export default class Section {
     this._element = document.querySelector(selector);
   }
   renderItems(data) {
-    console.log(data);
     // use this._renderer to render the data into this._element
     data.forEach((item) => {
       this._renderer(item);
