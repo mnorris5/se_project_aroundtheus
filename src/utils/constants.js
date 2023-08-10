@@ -38,3 +38,9 @@ export const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+// export const nameInput = editProfileForm.querySelector(".modal__input_type_name");
+// export const jobInput = editProfileForm.querySelector(
+//   ".modal__input_type_description"
+// );
+// export const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
+// export const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
