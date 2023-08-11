@@ -33,16 +33,8 @@ const cardPreviewPopup = new PopupWithImage({
 const cardSection = new Section(
   {
     renderer: (data) => {
-      const cardEl = new Card(
-        {
-          data,
-          handleImageClick: (imgData) => {
-            cardPreviewPopup.open(imgData);
-          },
-        },
-        selectors.cardTemplate
-      );
-      cardSection.addItem(cardEl.generateCard());
+      const cardEl = createCard(data);
+      cardSection.addItem(cardEl);
     },
   },
   selectors.cardSection
@@ -59,13 +51,29 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopup.open;
 });
 
+function createCard(data) {
+  const cardEl = new Card(
+    {
+      data,
+      handleImageClick: (imgData) => {
+        cardPreviewPopup.open(imgData);
+      },
+    },
+    selectors.cardTemplate
+  );
+  return cardEl.generateCard();
+}
+
 function handleAddCardFormSubmit(values) {
   // evt.preventDefault();
-  console.log(values);
+
   const name = values.title;
   const link = values.URL;
-  generateCard({ name, link }, cardsWrap);
-  closeModal(addCardModal);
+  // generateCard({ name, link }, cardsWrap);
+  const cardEl = createCard({ name, link });
+  cardSection.addItem(cardEl);
+  // closeModal(addCardModal);
+  newCardPopup.close();
 }
 
 const editProfilePopup = new PopupWithForm("#edit-modal", () => {});
