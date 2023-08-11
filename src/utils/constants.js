@@ -38,6 +38,15 @@ export const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+export const userInfoSettings = {
+  profileTitle: ".profile__title",
+  profileDescription: ".profile__description",
+  cardTitle: ".modal__input_type_title",
+  cardUrl: ".modal__input_type_url",
+  profileEditModal: "#edit-profile-form",
+};
+
 // export const nameInput = editProfileForm.querySelector(".modal__input_type_name");
 // export const jobInput = editProfileForm.querySelector(
 //   ".modal__input_type_description"

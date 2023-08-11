@@ -1,15 +1,23 @@
 import "./index.css";
 // class imports
-import { initialCards, selectors, config } from "../utils/constants.js";
+import {
+  initialCards,
+  selectors,
+  config,
+  userInfoData,
+} from "../utils/constants.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { openModal, closeModal } from "../utils/utils.js";
 import Section from "../components/Section.js";
-import PopupWithImage from "../components/PopupWithImage";
-import PopupWithForm from "../components/PopupWithForm";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/Section.js";
 
 const addCardForm = document.querySelector("#add-card-form");
 const editProfileForm = document.querySelector("#edit-profile-form");
+const addNewCardButton = document.querySelector(".profile__add-button");
+const editProfileButton = document.querySelector(".profile__edit-button");
 
 // create instances of classes
 
@@ -45,16 +53,18 @@ const newCardPopup = new PopupWithForm(
   handleAddCardFormSubmit
 );
 newCardPopup.setEventListeners();
+
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   newCardPopup.open;
 });
 
-function handleAddCardFormSubmit(evt) {
-  evt.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  renderCard({ name, link }, cardsWrap);
+function handleAddCardFormSubmit(values) {
+  // evt.preventDefault();
+  console.log(values);
+  const name = values.title;
+  const link = values.URL;
+  generateCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
 }
 
@@ -71,7 +81,7 @@ cardPreviewPopup.setEventListener();
 
 // all the rest
 
-const addNewCardButton = document.querySelector(".profile__add-button");
-const editProfileButton = document.querySelector(".profile__edit-button");
+//const addNewCardButton = document.querySelector(".profile__add-button");
+
 addNewCardButton.addEventListener("click", () => newCardPopup.open());
 editProfileButton.addEventListener("click", () => editProfilePopup.open());

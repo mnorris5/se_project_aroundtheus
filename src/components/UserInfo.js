@@ -1,13 +1,11 @@
 // export default class UserInfo {
-//     constructor{
-
-//     }
-// }
-
-// getUserInfo() {
-
-// }
-
-// setUserInfo() {
-
+//   constructor({ nameSelector, jobSelector }) {
+//
+//   }
+//   getUserInfo() {
+//
+//   }
+//   setUserInfo(userData) {
+//
+//   }
 // }
