@@ -51,6 +51,16 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopup.open;
 });
 
+const editProfilePopup = new PopupWithForm(
+  "#edit-modal",
+  handleProfileFormSubmit
+);
+editProfilePopup.setEventListeners();
+
+editProfileButton.addEventListener("click", () => {
+  editProfileFormValidator.resetValidation();
+});
+
 function createCard(data) {
   const cardEl = new Card(
     {
@@ -64,6 +74,11 @@ function createCard(data) {
   return cardEl.generateCard();
 }
 
+const userInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
+});
+
 function handleAddCardFormSubmit(values) {
   // evt.preventDefault();
 
@@ -76,7 +91,12 @@ function handleAddCardFormSubmit(values) {
   newCardPopup.close();
 }
 
-const editProfilePopup = new PopupWithForm("#edit-modal", () => {});
+function handleProfileFormSubmit(values) {
+  // evt.preventDefault();
+  userInfo.setUserInfo({ name, job });
+  editProfileFormValidator.resetValidation();
+  editProfilePopup.close;
+}
 
 newCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
