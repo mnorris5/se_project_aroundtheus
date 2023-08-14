@@ -12,7 +12,7 @@ import { openModal, closeModal } from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
 
 const addCardForm = document.querySelector("#add-card-form");
 const editProfileForm = document.querySelector("#edit-profile-form");
@@ -20,6 +20,11 @@ const addNewCardButton = document.querySelector(".profile__add-button");
 const editProfileButton = document.querySelector(".profile__edit-button");
 
 // create instances of classes
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
+});
 
 const addCardFormValidator = new FormValidator(config, addCardForm);
 const editProfileFormValidator = new FormValidator(config, editProfileForm);
@@ -74,11 +79,6 @@ function createCard(data) {
   return cardEl.generateCard();
 }
 
-const userInfo = new UserInfo({
-  nameSelector: ".profile__title",
-  jobSelector: ".profile__description",
-});
-
 function handleAddCardFormSubmit(values) {
   // evt.preventDefault();
 
@@ -93,23 +93,16 @@ function handleAddCardFormSubmit(values) {
 
 function handleProfileFormSubmit(values) {
   // evt.preventDefault();
-  userInfo.setUserInfo({ name, job });
+  userInfo.setUserInfo(values);
   editProfileFormValidator.resetValidation();
   editProfilePopup.close;
 }
 
-newCardPopup.setEventListeners();
-editProfilePopup.setEventListeners();
-
-// newCardPopup.open();
-// newCardPopup.close();
 // initialize instances
 cardSection.renderItems(initialCards);
 cardPreviewPopup.setEventListener();
 
 // all the rest
-
-//const addNewCardButton = document.querySelector(".profile__add-button");
 
 addNewCardButton.addEventListener("click", () => newCardPopup.open());
 editProfileButton.addEventListener("click", () => editProfilePopup.open());

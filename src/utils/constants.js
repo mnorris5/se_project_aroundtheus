@@ -46,10 +46,3 @@ export const userInfoSettings = {
   cardUrl: ".modal__input_type_url",
   profileEditModal: "#edit-profile-form",
 };
-
-// export const nameInput = editProfileForm.querySelector(".modal__input_type_name");
-// export const jobInput = editProfileForm.querySelector(
-//   ".modal__input_type_description"
-// );
-// export const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
-// export const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");

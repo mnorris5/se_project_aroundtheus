@@ -27,30 +27,3 @@ export default class PopupWithForm extends Popup {
     this._popupForm.reset();
   }
 }
-
-// const nameInput = editProfileForm.querySelector(".modal__input_type_name");
-// const jobInput = editProfileForm.querySelector(
-//   ".modal__input_type_description"
-// );
-// const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
-// const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
-
-// function handleProfileFormSubmit(evt) {
-//   evt.preventDefault();
-//   profileTitle.textContent = nameInput.value;
-//   profileDescription.textContent = jobInput.value;
-//   closeModal(editProfileModal);
-// }
-// function handleAddCardFormSubmit(evt) {
-//   evt.preventDefault();
-//   const name = cardTitleInput.value;
-//   const link = cardUrlInput.value;
-//   renderCard({ name, link }, cardsWrap);
-//   closeModal(addCardModal);
-
-//   addCardForm.reset();
-//   addCardFormValidator.resetValidation();
-// }
-
-// editProfileForm.addEventListener("submit", handleProfileFormSubmit);
-// addCardForm.addEventListener("submit", handleAddCardFormSubmit);

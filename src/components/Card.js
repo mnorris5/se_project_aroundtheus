@@ -38,13 +38,6 @@ export default class Card {
     this._element = null;
   };
 
-  _handlePreviewImage = () => {
-    // previewImage.src = this._link;
-    // previewImage.alt = this._name;
-    // previewTitle.textContent = this._name;
-    // openModal(previewImageModal);
-  };
-
   generateCard() {
     this._element = this._getTemplate();
 
