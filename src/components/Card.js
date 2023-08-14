@@ -1,10 +1,3 @@
-import { openModal } from "../utils/utils.js";
-import {
-  previewImage,
-  previewImageModal,
-  previewTitle,
-} from "../pages/index.js";
-
 export default class Card {
   constructor({ data, handleImageClick }, cardSelector) {
     this._name = data.name;

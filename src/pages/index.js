@@ -1,14 +1,9 @@
 import "./index.css";
 // class imports
-import {
-  initialCards,
-  selectors,
-  config,
-  userInfoData,
-} from "../utils/constants.js";
+import { initialCards, selectors, config } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import { openModal, closeModal } from "../utils/utils.js";
+// import { openModal, closeModal } from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -53,7 +48,7 @@ newCardPopup.setEventListeners();
 
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
-  newCardPopup.open;
+  newCardPopup.open();
 });
 
 const editProfilePopup = new PopupWithForm(
@@ -62,8 +57,15 @@ const editProfilePopup = new PopupWithForm(
 );
 editProfilePopup.setEventListeners();
 
+const ownerNameInput = document.querySelector("#owner-name");
+const ownerDescriptionInput = document.querySelector("#owner-description");
+
 editProfileButton.addEventListener("click", () => {
+  const user = userInfo.getUserInfo();
+  ownerNameInput.value = user.name;
+  ownerDescriptionInput.value = user.job;
   editProfileFormValidator.resetValidation();
+  editProfilePopup.open();
 });
 
 function createCard(data) {
@@ -80,22 +82,18 @@ function createCard(data) {
 }
 
 function handleAddCardFormSubmit(values) {
-  // evt.preventDefault();
-
   const name = values.title;
   const link = values.URL;
   // generateCard({ name, link }, cardsWrap);
   const cardEl = createCard({ name, link });
   cardSection.addItem(cardEl);
-  // closeModal(addCardModal);
+
   newCardPopup.close();
 }
 
 function handleProfileFormSubmit(values) {
-  // evt.preventDefault();
   userInfo.setUserInfo(values);
-  editProfileFormValidator.resetValidation();
-  editProfilePopup.close;
+  editProfilePopup.close();
 }
 
 // initialize instances
@@ -104,5 +102,11 @@ cardPreviewPopup.setEventListener();
 
 // all the rest
 
-addNewCardButton.addEventListener("click", () => newCardPopup.open());
-editProfileButton.addEventListener("click", () => editProfilePopup.open());
+addNewCardButton.addEventListener("click", () => {
+  addCardFormValidator.resetValidation();
+  newCardPopup.open();
+});
+editProfileButton.addEventListener("click", () => {
+  editProfileFormValidator.resetValidation();
+  editProfilePopup.open();
+});

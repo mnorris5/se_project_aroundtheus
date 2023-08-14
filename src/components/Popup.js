@@ -5,11 +5,19 @@ export default class Popup {
   open() {
     this._popupElement.classList.add("modal_opened");
     document.addEventListener("keyup", this._closeByEscape);
+    console.log(this);
   }
   close() {
     this._popupElement.classList.remove("modal_opened");
-    document.addEventListener("keyup", this._closeByEscape);
+    document.removeEventListener("keyup", this._closeByEscape);
   }
+  _closeByEscape = (evt) => {
+    console.log(this);
+
+    if (evt.key === "Escape") {
+      this.close();
+    }
+  };
 
   setEventListener() {
     this._popupElement.addEventListener("mouseup", (evt) => {
@@ -20,10 +28,10 @@ export default class Popup {
         this.close();
       }
     });
-    document.addEventListener("keyup", (evt) => {
-      if (evt.key === "Escape") {
-        this.close();
-      }
-    });
+    // document.addEventListener("keyup", (evt) => {
+    //   if (evt.key === "Escape") {
+    //     this.close();
+    //   }
+    // });
   }
 }
