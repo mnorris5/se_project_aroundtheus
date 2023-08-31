@@ -8,6 +8,7 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/api";
 
 const addCardForm = document.querySelector("#add-card-form");
 const editProfileForm = document.querySelector("#edit-profile-form");
@@ -15,6 +16,16 @@ const addNewCardButton = document.querySelector(".profile__add-button");
 const editProfileButton = document.querySelector(".profile__edit-button");
 
 // create instances of classes
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "538c4c21-92b1-4aec-a8cb-8245624705df",
+    "Content-Type": "application/json",
+  },
+});
+
+api.getInitialCards();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
