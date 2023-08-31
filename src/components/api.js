@@ -22,15 +22,15 @@ export default class Api {
 
   postCards() {
    
-    ( `${this._baseUrl}/cards` {
-        
+    fetch( `${this._baseUrl}/cards` {
       headers: this._headers
+    //   post
     })
       .then(this._checkResponse)
   }
   getUserInfo() {
    
-    fetch( `${this._baseUrl}/cards` {
+    fetch( `${this._baseUrl}/users/me` {
       headers: this._headers
     //   get
     })
@@ -38,7 +38,7 @@ export default class Api {
   }
   updateUserInfo() {
    
-    fetch( `${this._baseUrl}/cards` {
+    fetch( `${this._baseUrl}/users/me` {
       headers: this._headers
     //   patch
     })
@@ -46,7 +46,7 @@ export default class Api {
   }
   updateAvatar() {
    
-    fetch( `${this._baseUrl}/cards` {
+    fetch( `${this._baseUrl}/users/me/avatar` {
       headers: this._headers
     //   patch
     })
@@ -54,7 +54,7 @@ export default class Api {
   }
   deleteCards() {
    
-    fetch( `${this._baseUrl}/cards` {
+    fetch( `${this._baseUrl}/cards/:cardId` {
       headers: this._headers
     //   delete
     })
@@ -62,7 +62,7 @@ export default class Api {
   }
   likeCards() {
    
-    fetch( `${this._baseUrl}/cards` {
+    fetch( `${this._baseUrl}/cards/:cardId/likes` {
       headers: this._headers
     //   put
     })
@@ -70,7 +70,7 @@ export default class Api {
   }
   dislikeCards() {
    
-    fetch( `${this._baseUrl}/cards` {
+    fetch( `${this._baseUrl}/cards/:cardId/likes` {
       headers: this._headers
     //   delete
     })
