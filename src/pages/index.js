@@ -25,7 +25,9 @@ const api = new Api({
   },
 });
 
-api.getInitialCards();
+api.getInitialCards().then((res) => {
+  console.log(res);
+});
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
@@ -94,17 +96,24 @@ function createCard(data) {
 
 function handleAddCardFormSubmit(values) {
   const name = values.title;
+  // console.log(values);
   const link = values.URL;
   // generateCard({ name, link }, cardsWrap);
-  const cardEl = createCard({ name, link });
-  cardSection.addItem(cardEl);
+  api.addCards({ title: values.title, url: values.URL }).then((res) => {
+    const cardEl = createCard({ name, link });
+    cardSection.addItem(cardEl);
 
-  newCardPopup.close();
+    newCardPopup.close();
+  });
 }
 
 function handleProfileFormSubmit(values) {
-  userInfo.setUserInfo(values);
-  editProfilePopup.close();
+  console.log(values);
+  api.updateUserInfo(values).then((res) => {
+    console.log(res);
+    userInfo.setUserInfo(res);
+    editProfilePopup.close();
+  });
 }
 
 // initialize instances
