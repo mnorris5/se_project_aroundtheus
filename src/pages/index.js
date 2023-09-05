@@ -14,6 +14,7 @@ const addCardForm = document.querySelector("#add-card-form");
 const editProfileForm = document.querySelector("#edit-profile-form");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const editProfileButton = document.querySelector(".profile__edit-button");
+const editAvatarButton = document.querySelector(".profile__image-edit-button");
 
 // create instances of classes
 
@@ -32,6 +33,7 @@ api.getInitialCards().then((res) => {
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__description",
+  userAvatar: ".profile__image",
 });
 
 const addCardFormValidator = new FormValidator(config, addCardForm);

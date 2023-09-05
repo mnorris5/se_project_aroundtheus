@@ -24,6 +24,18 @@
             alt="Avatar"
             class="profile__image"
           />
+          <div class="profile__image-edit-container">
+            <button
+              class="profile__image-edit-button"
+              type="button"
+              id="profile-image-edit-button"
+            ></button>
+            <img
+              class="profile__image-hover-image"
+              src="<%=require('./images/edit-icon.svg')%>"
+              alt="Edit image"
+            />
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -128,6 +140,38 @@
         ></button>
         <img class="modal__preview-image" src="#" alt="#" />
         <p class="modal__preview-title"></p>
+      </div>
+    </div>
+    <!-- delete modal -->
+    <div class="modal" id="">
+      <div class="modal__container">
+        <form class="modal__form modal__delete-form" id="modal-delete-form">
+          <h3 class="modal__heading">Are you sure?</h3>
+          <button class="modal__button" type="button" id="modal-delete-button">
+            Yes
+          </button>
+          <button class="modal__close" type="button"></button>
+        </form>
+      </div>
+    </div>
+    <!-- avatar modal -->
+    <div class="modal" id="">
+      <div class="modal__container">
+        <form class="modal__form">
+          <h3 class="modal__heading">Change profile picture</h3>
+          <input
+            class="modal__input modal__input_type_url"
+            id=""
+            type="url"
+            placeholder="Image URL"
+            required
+          />
+          <span></span>
+          <button class="modal__button" type="button" id="modal-avatar-button">
+            Save
+          </button>
+          <button class="modal__close" type="button"></button>
+        </form>
       </div>
     </div>
     <!-- Template -->
