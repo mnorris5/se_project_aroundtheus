@@ -29,12 +29,13 @@
               class="profile__image-edit-button"
               type="button"
               id="profile-image-edit-button"
-            ></button>
-            <img
-              class="profile__image-hover-image"
-              src="<%=require('./images/edit-icon.svg')%>"
-              alt="Edit image"
-            />
+            >
+              <img
+                class="profile__image-hover-image"
+                src="<%=require('./images/edit-icon.svg')%>"
+                alt="Edit image"
+              />
+            </button>
           </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
@@ -143,7 +144,7 @@
       </div>
     </div>
     <!-- delete modal -->
-    <div class="modal" id="">
+    <div class="modal" id="delete-modal">
       <div class="modal__container">
         <form class="modal__form modal__delete-form" id="modal-delete-form">
           <h3 class="modal__heading">Are you sure?</h3>
@@ -155,7 +156,7 @@
       </div>
     </div>
     <!-- avatar modal -->
-    <div class="modal" id="">
+    <div class="modal" id="Avatar-modal">
       <div class="modal__container">
         <form class="modal__form">
           <h3 class="modal__heading">Change profile picture</h3>

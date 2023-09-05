@@ -72,6 +72,12 @@ const editProfilePopup = new PopupWithForm(
 );
 editProfilePopup.setEventListeners();
 
+const editAvatarPopup = new PopupWithForm(
+  "#Avatar-modal",
+  handleAvatarFormSubmit
+);
+editAvatarPopup.setEventListeners();
+
 const ownerNameInput = document.querySelector("#owner-name");
 const ownerDescriptionInput = document.querySelector("#owner-description");
 
@@ -110,14 +116,17 @@ function handleAddCardFormSubmit(values) {
 }
 
 function handleProfileFormSubmit(values) {
-  console.log(values);
   api.updateUserInfo(values).then((res) => {
-    console.log(res);
     userInfo.setUserInfo(res);
     editProfilePopup.close();
   });
 }
-
+function handleAvatarFormSubmit(values) {
+  api.updateAvatar(values).then((res) => {
+    userInfo.setUserInfo(res);
+    editAvatarPopup.close();
+  });
+}
 // initialize instances
 cardSection.renderItems(initialCards);
 cardPreviewPopup.setEventListener();
@@ -131,4 +140,8 @@ addNewCardButton.addEventListener("click", () => {
 editProfileButton.addEventListener("click", () => {
   editProfileFormValidator.resetValidation();
   editProfilePopup.open();
+});
+editAvatarButton.addEventListener("click", () => {
+  // editAvatarFormValidator.resetValidation();
+  editAvatarPopup.open();
 });

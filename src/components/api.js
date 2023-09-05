@@ -48,7 +48,11 @@ export default class Api {
   updateAvatar() {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
-      method: "patch",
+      method: "PATCH",
+      body: JSON.stringify({
+        link: inputValues.url,
+      }),
+
       //   image
     }).then(this._checkResponse);
   }
