@@ -12,6 +12,8 @@ import Api from "../components/api";
 
 const addCardForm = document.querySelector("#add-card-form");
 const editProfileForm = document.querySelector("#edit-profile-form");
+const editAvatarForm = document.querySelector("#edit-avatar-form");
+
 const addNewCardButton = document.querySelector(".profile__add-button");
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editAvatarButton = document.querySelector(".profile__image-edit-button");
@@ -29,6 +31,10 @@ const api = new Api({
 api.getInitialCards().then((res) => {
   console.log(res);
 });
+api.getUserInfo().then((res) => {
+  console.log(res);
+  userInfo.setAvatar(res.avatar);
+});
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
@@ -38,8 +44,10 @@ const userInfo = new UserInfo({
 
 const addCardFormValidator = new FormValidator(config, addCardForm);
 const editProfileFormValidator = new FormValidator(config, editProfileForm);
+const editAvatarFormValidator = new FormValidator(config, editAvatarForm);
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
+editAvatarFormValidator.enableValidation();
 
 const cardPreviewPopup = new PopupWithImage({
   popupSelector: selectors.previewPopup,
@@ -73,7 +81,7 @@ const editProfilePopup = new PopupWithForm(
 editProfilePopup.setEventListeners();
 
 const editAvatarPopup = new PopupWithForm(
-  "#Avatar-modal",
+  "#avatar-modal",
   handleAvatarFormSubmit
 );
 editAvatarPopup.setEventListeners();
@@ -123,7 +131,8 @@ function handleProfileFormSubmit(values) {
 }
 function handleAvatarFormSubmit(values) {
   api.updateAvatar(values).then((res) => {
-    userInfo.setUserInfo(res);
+    userInfo.setAvatar(res.avatar);
+    editAvatarFormValidator.resetValidation();
     editAvatarPopup.close();
   });
 }
@@ -133,15 +142,16 @@ cardPreviewPopup.setEventListener();
 
 // all the rest
 
-addNewCardButton.addEventListener("click", () => {
-  addCardFormValidator.resetValidation();
-  newCardPopup.open();
-});
-editProfileButton.addEventListener("click", () => {
-  editProfileFormValidator.resetValidation();
-  editProfilePopup.open();
-});
+// addNewCardButton.addEventListener("click", () => {
+//   addCardFormValidator.resetValidation();
+//   newCardPopup.open();
+// });
+// editProfileButton.addEventListener("click", () => {
+//   editProfileFormValidator.resetValidation();
+//   editProfilePopup.open();
+// });
+
 editAvatarButton.addEventListener("click", () => {
-  // editAvatarFormValidator.resetValidation();
+  editAvatarFormValidator.resetValidation();
   editAvatarPopup.open();
 });

@@ -19,11 +19,7 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Avatar"
-            class="profile__image"
-          />
+          <img alt="Avatar" class="profile__image" />
           <div class="profile__image-edit-container">
             <button
               class="profile__image-edit-button"
@@ -156,9 +152,9 @@
       </div>
     </div>
     <!-- avatar modal -->
-    <div class="modal" id="Avatar-modal">
+    <div class="modal" id="avatar-modal">
       <div class="modal__container">
-        <form class="modal__form">
+        <form class="modal__form" id="edit-avatar-form">
           <h3 class="modal__heading">Change profile picture</h3>
           <input
             class="modal__input modal__input_type_url"
@@ -166,9 +162,10 @@
             type="url"
             placeholder="Image URL"
             required
+            name="avatar"
           />
           <span></span>
-          <button class="modal__button" type="button" id="modal-avatar-button">
+          <button class="modal__button" type="submit" id="modal-avatar-button">
             Save
           </button>
           <button class="modal__close" type="button"></button>
