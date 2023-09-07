@@ -102,7 +102,7 @@ editProfileButton.addEventListener("click", () => {
 const handleDeleteClick = () => {
   confirmationPopup.setSubmitCallback(() => {
     confirmationPopup.setButtonText(true, "Saving...");
-    api.deleteCards(card._id),
+    api.deleteCards(Card._id),
       then(() => {
         cardEl.deleteCards();
         confirmationPopup.close;
@@ -110,11 +110,11 @@ const handleDeleteClick = () => {
         console.error(err);
       });
   });
-  confirmationPopup.open;
+  confirmationPopup.close();
 };
 
-const confirmationPopup = new PopupWithConfirmation(popupSelector);
 const popupSelector = "#delete-modal";
+const confirmationPopup = new PopupWithConfirmation(popupSelector);
 
 handleDeleteClick();
 confirmationPopup.setEventListeners();
@@ -123,6 +123,7 @@ function createCard(data) {
   const cardEl = new Card(
     {
       data,
+
       handleImageClick: (imgData) => {
         cardPreviewPopup.open(imgData);
       },
