@@ -9,6 +9,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api";
+import PopupWithConfirmation from "../components/PopupWithConfirmation";
 
 const addCardForm = document.querySelector("#add-card-form");
 const editProfileForm = document.querySelector("#edit-profile-form");
@@ -17,6 +18,7 @@ const editAvatarForm = document.querySelector("#edit-avatar-form");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editAvatarButton = document.querySelector(".profile__image-edit-button");
+const handleDeleteClick = document.querySelector(".card__delete-button");
 
 // create instances of classes
 
@@ -96,6 +98,23 @@ editProfileButton.addEventListener("click", () => {
   editProfileFormValidator.resetValidation();
   editProfilePopup.open();
 });
+
+const handleDeleteClick = () => {
+  confirmationPopup.setSubmitCallback(() => {
+    confirmationPopup.setButtonText(true, "Saving...");
+    api.deleteCards(card._id),
+      then(() => {
+        cardEl.deleteCards();
+        confirmationPopup.close;
+      }).catch((err) => {
+        console.error(err);
+      });
+  });
+  confirmationPopup.open;
+};
+
+const confirmationPopup = new PopupWithConfirmation();
+confirmationPopup.setEventListeners();
 
 function createCard(data) {
   const cardEl = new Card(
