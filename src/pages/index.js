@@ -18,7 +18,7 @@ const editAvatarForm = document.querySelector("#edit-avatar-form");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editAvatarButton = document.querySelector(".profile__image-edit-button");
-const handleDeleteClick = document.querySelector(".card__delete-button");
+// const cardDeleteButton = document.querySelector(".card__delete-button");
 
 // create instances of classes
 
@@ -113,7 +113,10 @@ const handleDeleteClick = () => {
   confirmationPopup.open;
 };
 
-const confirmationPopup = new PopupWithConfirmation();
+const confirmationPopup = new PopupWithConfirmation(popupSelector);
+const popupSelector = "#delete-modal";
+
+handleDeleteClick();
 confirmationPopup.setEventListeners();
 
 function createCard(data) {
