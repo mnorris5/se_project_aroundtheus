@@ -29,12 +29,22 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
+let cardSection;
 api.getInitialCards().then((res) => {
-  console.log(res);
+  cardSection = new Section(
+    {
+      items: res,
+      renderer: (data) => {
+        const cardEl = createCard(data);
+        cardSection.addItem(cardEl);
+      },
+    },
+    selectors.cardSection
+  );
+  cardSection.renderItems();
 });
+
 api.getUserInfo().then((res) => {
-  console.log(res);
   userInfo.setAvatar(res.avatar);
 });
 
@@ -54,16 +64,6 @@ editAvatarFormValidator.enableValidation();
 const cardPreviewPopup = new PopupWithImage({
   popupSelector: selectors.previewPopup,
 });
-
-const cardSection = new Section(
-  {
-    renderer: (data) => {
-      const cardEl = createCard(data);
-      cardSection.addItem(cardEl);
-    },
-  },
-  selectors.cardSection
-);
 
 const newCardPopup = new PopupWithForm(
   "#add-card-modal",
@@ -99,18 +99,26 @@ editProfileButton.addEventListener("click", () => {
   editProfilePopup.open();
 });
 
-const handleDeleteClick = () => {
+const handleDeleteClick = (card) => {
+  // open the modal
+
+  confirmationPopup.open();
   confirmationPopup.setSubmitCallback(() => {
     confirmationPopup.setButtonText(true, "Saving...");
-    api.deleteCards(Card._id),
-      then(() => {
-        cardEl.deleteCards();
-        confirmationPopup.close;
-      }).catch((err) => {
+    // not Card, use card
+    api
+      .deleteCards(card._id)
+      .then(() => {
+        // use the public method from Card.js
+        card.delete();
+      })
+      .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        confirmationPopup.close();
       });
   });
-  confirmationPopup.close();
 };
 
 const popupSelector = "#delete-modal";
@@ -123,7 +131,7 @@ function createCard(data) {
   const cardEl = new Card(
     {
       data,
-
+      handleDeleteClick,
       handleImageClick: (imgData) => {
         cardPreviewPopup.open(imgData);
       },
@@ -139,7 +147,8 @@ function handleAddCardFormSubmit(values) {
   const link = values.URL;
   // generateCard({ name, link }, cardsWrap);
   api.addCards({ title: values.title, url: values.URL }).then((res) => {
-    const cardEl = createCard({ name, link });
+    // res is the card data
+    const cardEl = createCard(res);
     cardSection.addItem(cardEl);
 
     newCardPopup.close();

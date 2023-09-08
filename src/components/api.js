@@ -63,6 +63,7 @@ export default class Api {
       body: JSON.stringify({
         name: inputValues.title,
         link: inputValues.url,
+        // card.id
       }),
       //   link
     }).then(this._checkResponse);
@@ -71,14 +72,12 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
       headers: this._headers,
       method: "put",
-      //   likeButton?
     }).then(this._checkResponse);
   }
   dislikeCards() {
     return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
       headers: this._headers,
       method: "delete",
-      //   likeButton?
     }).then(this._checkResponse);
   }
   // other methods

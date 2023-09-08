@@ -1,9 +1,12 @@
 export default class Card {
-  constructor({ data, handleImageClick }, cardSelector) {
+  constructor({ data, handleImageClick, handleDeleteClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
+    // this._cardId = cardId;
+    // this._likebutton = likebutton;
   }
 
   _getTemplate() {
@@ -16,7 +19,12 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLikeIcon);
-    this._deleteButton.addEventListener("click", this._handleDeleteCard);
+    // use the handler passed in from index.js
+
+    // will need to pass an argument
+    this._deleteButton.addEventListener("click", () => {
+      this._handleDeleteClick(this);
+    });
     this._cardImage.addEventListener("click", () =>
       this._handleImageClick({ link: this._link, text: this._name })
     );
@@ -26,7 +34,8 @@ export default class Card {
     this.classList.toggle("card__like-button_active");
   }
 
-  _handleDeleteCard = () => {
+  // make this a public function
+  delete = () => {
     this._element.remove();
     this._element = null;
   };
