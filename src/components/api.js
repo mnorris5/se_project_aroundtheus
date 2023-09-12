@@ -56,16 +56,10 @@ export default class Api {
       //   image
     }).then(this._checkResponse);
   }
-  deleteCards() {
-    return fetch(`${this._baseUrl}/cards/:cardId`, {
+  deleteCards(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
       headers: this._headers,
       method: "DELETE",
-      body: JSON.stringify({
-        name: inputValues.title,
-        link: inputValues.url,
-        // card.id
-      }),
-      //   link
     }).then(this._checkResponse);
   }
   likeCards() {
