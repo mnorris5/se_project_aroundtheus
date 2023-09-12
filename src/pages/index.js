@@ -30,6 +30,7 @@ const api = new Api({
   },
 });
 let cardSection;
+
 api.getInitialCards().then((res) => {
   cardSection = new Section(
     {
@@ -46,6 +47,8 @@ api.getInitialCards().then((res) => {
 
 api.getUserInfo().then((res) => {
   userInfo.setAvatar(res.avatar);
+  userInfo.setUserInfo(res);
+  // userInfo.setUserInfo(res.about);
 });
 
 const userInfo = new UserInfo({
@@ -101,7 +104,6 @@ editProfileButton.addEventListener("click", () => {
 
 const handleDeleteClick = (card) => {
   // open the modal
-
   confirmationPopup.open();
   confirmationPopup.setSubmitCallback(() => {
     confirmationPopup.setButtonText(true, "Saving...");
@@ -124,7 +126,7 @@ const handleDeleteClick = (card) => {
 const popupSelector = "#delete-modal";
 const confirmationPopup = new PopupWithConfirmation(popupSelector);
 
-handleDeleteClick();
+// handleDeleteClick();
 confirmationPopup.setEventListeners();
 
 function createCard(data) {
@@ -169,7 +171,8 @@ function handleAvatarFormSubmit(values) {
   });
 }
 // initialize instances
-cardSection.renderItems(initialCards);
+
+// cardSection.renderItems(initialCards);
 cardPreviewPopup.setEventListener();
 
 // all the rest

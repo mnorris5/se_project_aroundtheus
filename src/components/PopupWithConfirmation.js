@@ -22,13 +22,17 @@ export default class PopupWithConfirmation extends Popup {
       this._submitButton.textContent = this._submitButtonText;
     }
   }
-  setSubmitCallback() {
-    // this._handleFormSubmit = callback;
+  setSubmitCallback(callback) {
+    this._handleFormSubmit = callback;
   }
   setEventListeners() {
     this._popupForm.addEventListener("submit", () => {
       this._handleFormSubmit();
     });
     super.setEventListener();
+    this._popupForm.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      // ...implementation of listener toggleButtonState
+    });
   }
 }

@@ -144,7 +144,7 @@
       <div class="modal__container">
         <form class="modal__form modal__delete-form" id="modal-delete-form">
           <h3 class="modal__heading">Are you sure?</h3>
-          <button class="modal__button" type="button" id="modal-delete-button">
+          <button class="modal__button" type="submit" id="modal-delete-button">
             Yes
           </button>
           <button class="modal__close" type="button"></button>
@@ -156,15 +156,17 @@
       <div class="modal__container">
         <form class="modal__form" id="edit-avatar-form">
           <h3 class="modal__heading">Change profile picture</h3>
-          <input
-            class="modal__input modal__input_type_url"
-            type="url"
-            placeholder="Image URL"
-            required
-            name="avatar"
-            id="avatar-url"
-          />
-          <span class="modal__error" id="avatar-url-error"></span>
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_url"
+              type="url"
+              placeholder="Image URL"
+              required
+              name="avatar"
+              id="avatar-url"
+            />
+            <span class="modal__error" id="avatar-url-error"></span>
+          </label>
           <button class="modal__button" type="submit" id="modal-avatar-button">
             Save
           </button>
