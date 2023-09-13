@@ -56,22 +56,22 @@ export default class Api {
       //   image
     }).then(this._checkResponse);
   }
-  deleteCards(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+  deleteCard(card) {
+    return fetch(`${this._baseUrl}/cards/${card}`, {
       headers: this._headers,
       method: "DELETE",
     }).then(this._checkResponse);
   }
-  likeCards() {
-    return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
+  likeCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       headers: this._headers,
-      method: "put",
+      method: "PUT",
     }).then(this._checkResponse);
   }
-  dislikeCards() {
-    return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
+  unlikeCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       headers: this._headers,
-      method: "delete",
+      method: "DELETE",
     }).then(this._checkResponse);
   }
   // other methods

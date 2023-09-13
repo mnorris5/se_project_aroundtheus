@@ -103,15 +103,13 @@ editProfileButton.addEventListener("click", () => {
 });
 
 const handleDeleteClick = (card) => {
-  // open the modal
   confirmationPopup.open();
   confirmationPopup.setSubmitCallback(() => {
     confirmationPopup.setButtonText(true, "Saving...");
-    // not Card, use card
+
     api
-      .deleteCards(card._id)
+      .deleteCard(card._cardId)
       .then(() => {
-        // use the public method from Card.js
         card.delete();
       })
       .catch((err) => {
@@ -121,6 +119,28 @@ const handleDeleteClick = (card) => {
         confirmationPopup.close();
       });
   });
+};
+
+const handleLikeClick = (card) => {
+  if (card._isLiked) {
+    api
+      .unlikeCard(card._cardId)
+      .then(() => {
+        card._handleLikeIcon(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  } else {
+    api
+      .likeCard(card._cardId)
+      .then(() => {
+        card._handleLikeIcon(true);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 };
 
 const popupSelector = "#delete-modal";
@@ -133,6 +153,7 @@ function createCard(data) {
   const cardEl = new Card(
     {
       data,
+      handleLikeClick,
       handleDeleteClick,
       handleImageClick: (imgData) => {
         cardPreviewPopup.open(imgData);

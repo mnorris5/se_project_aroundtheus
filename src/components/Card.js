@@ -1,12 +1,17 @@
 export default class Card {
-  constructor({ data, handleImageClick, handleDeleteClick }, cardSelector) {
+  constructor(
+    { data, handleImageClick, handleDeleteClick, handleLikeClick },
+    cardSelector
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
-    // this._cardId = cardId;
-    // this._likebutton = likebutton;
+    this._handleLikeClick = handleLikeClick;
+
+    this._cardId = data._id;
+    this._isLiked = data.isLiked;
   }
 
   _getTemplate() {
@@ -18,10 +23,12 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", this._handleLikeIcon);
-    // use the handler passed in from index.js
+    this._likeButton.addEventListener("click", () => {
+      // this._handleLikeIcon;
+      this._handleLikeClick(this);
+      // this._handleDislikeClick(this);
+    });
 
-    // will need to pass an argument
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteClick(this);
     });
@@ -30,11 +37,23 @@ export default class Card {
     );
   }
 
-  _handleLikeIcon() {
-    this.classList.toggle("card__like-button_active");
+  _handleLikeIcon(isLiked) {
+    this._isLiked = isLiked;
+    this._renderLikes();
+    //
+    // this._likeButton.classList.toggle("card__like-button_active");
   }
-
+  _renderLikes() {
+    // check if thisisliked is true add active class
+    // similar to handle like if/else
+    if (this._isLiked) {
+      this._likeButton.classList.toggle("card__like-button_active");
+    } else {
+      this._likeButton.classList.toggle("card__like-button_active");
+    }
+  }
   // make this a public function
+
   delete = () => {
     this._element.remove();
     this._element = null;
@@ -46,6 +65,7 @@ export default class Card {
     this._likeButton = this._element.querySelector(".card__like-button");
     this._deleteButton = this._element.querySelector(".card__delete-button");
     this._cardImage = this._element.querySelector(".card__image");
+    this._renderLikes();
 
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
