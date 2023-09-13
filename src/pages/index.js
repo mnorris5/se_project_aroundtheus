@@ -105,7 +105,7 @@ editProfileButton.addEventListener("click", () => {
 const handleDeleteClick = (card) => {
   confirmationPopup.open();
   confirmationPopup.setSubmitCallback(() => {
-    confirmationPopup.setButtonText(true, "Saving...");
+    confirmationPopup.setButtonText(true, "Deleting...");
 
     api
       .deleteCard(card._cardId)
@@ -170,6 +170,8 @@ function handleAddCardFormSubmit(values) {
   const link = values.URL;
   // generateCard({ name, link }, cardsWrap);
   api.addCards({ title: values.title, url: values.URL }).then((res) => {
+    newCardPopup.setButtonText(true, "Saving...");
+
     // res is the card data
     const cardEl = createCard(res);
     cardSection.addItem(cardEl);
@@ -180,13 +182,18 @@ function handleAddCardFormSubmit(values) {
 
 function handleProfileFormSubmit(values) {
   api.updateUserInfo(values).then((res) => {
+    editProfilePopup.setButtonText(true, "Saving...");
+
     userInfo.setUserInfo(res);
     editProfilePopup.close();
   });
 }
 function handleAvatarFormSubmit(values) {
   api.updateAvatar(values).then((res) => {
+    editAvatarPopup.setButtonText(true, "Saving...");
+
     userInfo.setAvatar(res.avatar);
+
     editAvatarFormValidator.resetValidation();
     editAvatarPopup.close();
   });

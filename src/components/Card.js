@@ -47,9 +47,9 @@ export default class Card {
     // check if thisisliked is true add active class
     // similar to handle like if/else
     if (this._isLiked) {
-      this._likeButton.classList.toggle("card__like-button_active");
+      this._likeButton.classList.add("card__like-button_active");
     } else {
-      this._likeButton.classList.toggle("card__like-button_active");
+      this._likeButton.classList.remove("card__like-button_active");
     }
   }
   // make this a public function
