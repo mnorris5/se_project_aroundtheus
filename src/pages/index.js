@@ -209,7 +209,7 @@ function handleProfileFormSubmit(values) {
       console.error(err);
     })
     .finally(() => {
-      newCardPopup.setButtonText(false);
+      editProfilePopup.setButtonText(false);
     });
 }
 function handleAvatarFormSubmit(values) {
@@ -226,11 +226,9 @@ function handleAvatarFormSubmit(values) {
     .catch((err) => {
       console.error(err);
     })
-    .catch((err) => {
-      console.error(err);
-    })
+
     .finally(() => {
-      newCardPopup.setButtonText(false);
+      editAvatarPopup.setButtonText(false);
     });
 }
 // initialize instances
