@@ -121,6 +121,10 @@ const handleDeleteClick = (card) => {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        // set the text content back to whatever it started at
+        confirmationPopup.setButtonText(false);
       });
   });
 };
@@ -175,32 +179,59 @@ function handleAddCardFormSubmit(values) {
   // generateCard({ name, link }, cardsWrap);
   newCardPopup.setButtonText(true, "Saving...");
 
-  api.addCards({ title: values.title, url: values.URL }).then((res) => {
-    // res is the card data
-    const cardEl = createCard(res);
-    cardSection.addItem(cardEl);
+  api
+    .addCards({ title: values.title, url: values.URL })
+    .then((res) => {
+      // res is the card data
+      const cardEl = createCard(res);
+      cardSection.addItem(cardEl);
 
-    newCardPopup.close();
-  });
+      newCardPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      newCardPopup.setButtonText(false);
+    });
 }
 
 function handleProfileFormSubmit(values) {
   editProfilePopup.setButtonText(true, "Saving...");
 
-  api.updateUserInfo(values).then((res) => {
-    userInfo.setUserInfo(res);
-    editProfilePopup.close();
-  });
+  api
+    .updateUserInfo(values)
+    .then((res) => {
+      userInfo.setUserInfo(res);
+      editProfilePopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      newCardPopup.setButtonText(false);
+    });
 }
 function handleAvatarFormSubmit(values) {
   editAvatarPopup.setButtonText(true, "Saving...");
 
-  api.updateAvatar(values).then((res) => {
-    userInfo.setAvatar(res.avatar);
+  api
+    .updateAvatar(values)
+    .then((res) => {
+      userInfo.setAvatar(res.avatar);
 
-    // editAvatarFormValidator.resetValidation();
-    editAvatarPopup.close();
-  });
+      // editAvatarFormValidator.resetValidation();
+      editAvatarPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      newCardPopup.setButtonText(false);
+    });
 }
 // initialize instances
 
