@@ -10,8 +10,8 @@ export default class Card {
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
 
-    this._cardId = data._id;
-    this._isLiked = data.isLiked;
+    this.cardId = data._id;
+    this.isLiked = data.isLiked;
   }
 
   _getTemplate() {
@@ -38,7 +38,7 @@ export default class Card {
   }
 
   _handleLikeIcon(isLiked) {
-    this._isLiked = isLiked;
+    this.isLiked = isLiked;
     this._renderLikes();
     //
     // this._likeButton.classList.toggle("card__like-button_active");
@@ -46,7 +46,7 @@ export default class Card {
   _renderLikes() {
     // check if thisisliked is true add active class
     // similar to handle like if/else
-    if (this._isLiked) {
+    if (this.isLiked) {
       this._likeButton.classList.add("card__like-button_active");
     } else {
       this._likeButton.classList.remove("card__like-button_active");
