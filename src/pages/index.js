@@ -50,11 +50,16 @@ api
     console.error(error);
   });
 
-api.getUserInfo().then((res) => {
-  userInfo.setAvatar(res.avatar);
-  userInfo.setUserInfo(res);
-  // userInfo.setUserInfo(res.about);
-});
+api
+  .getUserInfo()
+  .then((res) => {
+    userInfo.setAvatar(res.avatar);
+    userInfo.setUserInfo(res);
+    // userInfo.setUserInfo(res.about);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
@@ -134,7 +139,7 @@ const handleLikeClick = (card) => {
     api
       .unlikeCard(card.cardId)
       .then(() => {
-        card._handleLikeIcon(false);
+        card.handleLikeIcon(false);
       })
       .catch((err) => {
         console.error(err);
@@ -143,7 +148,7 @@ const handleLikeClick = (card) => {
     api
       .likeCard(card.cardId)
       .then(() => {
-        card._handleLikeIcon(true);
+        card.handleLikeIcon(true);
       })
       .catch((err) => {
         console.error(err);

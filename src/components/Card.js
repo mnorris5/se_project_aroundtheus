@@ -25,7 +25,7 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
       // this._handleLikeIcon;
-      this._handleLikeClick(this);
+      this.handleLikeClick(this);
       // this._handleDislikeClick(this);
     });
 
@@ -37,7 +37,7 @@ export default class Card {
     );
   }
 
-  _handleLikeIcon(isLiked) {
+  handleLikeIcon(isLiked) {
     this.isLiked = isLiked;
     this._renderLikes();
     //
